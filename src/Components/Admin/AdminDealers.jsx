@@ -3,23 +3,16 @@ import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-reac
 import InputTextt from '../InputTextt';
 import '../Home.css'
 import Button from '../Button';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-export default function AdminUsers() {
-const nav = useNavigate()
-
-const data = useSelector((state)=>state.user)
-// console.log(data);
-
+export default function AdminDealers() {
   return (
     <div> 
-      <div style={{textAlign:'center'}}>
-      <h1>All Users</h1>
-      </div>
       <br /><br />
-      <div onClick={()=> nav('/signup')}>
-        <Button text='Add New User' classes='me-1'  color='success' />
+      <div style={{textAlign:'center'}}>
+        <h1>All Dealers</h1>
+      </div>
+      <div>
+        <Button text='Add New Dealer' classes='me-1'  color='success' />
         </div> 
         <br /><br /><br />
        <div className='homeSearch' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
@@ -30,27 +23,27 @@ const data = useSelector((state)=>state.user)
     <MDBTable align='middle'>
       <MDBTableHead>
         <tr>
-          <th scope='col'>Name</th>
-          <th scope='col'>Email</th>
-          <th scope='col'>Status</th>
-          <th scope='col'>Actions</th>
+          <th scope='col'>Dealer Name</th>
+          <th scope='col'>Dealer Email</th>
+          <th scope='col'> Dealer Status</th>
+          <th scope='col'>Dealer Actions</th>
+          <th scope='col'>Dealer Adress</th>
+
         </tr>
       </MDBTableHead>
-    
-    {data.map((e) => (
-        <MDBTableBody>
+      <MDBTableBody>
         <tr>
           <td>
             <div className='d-flex align-items-center'>
               <img
-                src='https://icon-library.com/images/user-icon-jpg/user-icon-jpg-25.jpg'
+                src='https://mdbootstrap.com/img/new/avatars/7.jpg'
                 alt=''
                 style={{ width: '45px', height: '45px' }}
                 className='rounded-circle'
               />
               <div className='ms-3'>
-                <p className='fw-bold mb-1'>{e.userName}</p>
-                <p className='text-muted mb-0'>{e.userEmail}</p>
+                <p className='fw-bold mb-1'>Kate Hunington</p>
+                <p className='text-muted mb-0'>kate.hunington@gmail.com</p>
               </div>
             </div>
           </td>
@@ -76,8 +69,6 @@ const data = useSelector((state)=>state.user)
           </td>
         </tr>
       </MDBTableBody>
-   ) )}
-
     </MDBTable>
     </div>
   );

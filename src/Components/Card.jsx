@@ -55,7 +55,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fethProducts } from "../assets/Redux/Slices/ProductSlice";
-
+import Button from "./Button";
 
 
 
@@ -107,7 +107,7 @@ function Card() {
                 <div className="d-flex justify-content-start align-items-start h-100">
                   <h5>
                     <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
-                      $123   
+                    ₹ {product.price}   
                     </span>
                   </h5>
                 </div>
@@ -119,9 +119,8 @@ function Card() {
                 ></div>
               </div>
             </a>
-            <MDBCardFooter className='text-muted' style={{height:'170px',display:'flex',alignItems:'center'}}> 
-     
-     <ViewProduct id={product.id} />
+            <MDBCardFooter className='text-muted' style={{height:'170px',display:'flex',alignItems:'center'}} onClick={() => nav(`/viewproduct/${product.id}`)}> 
+            <Button  classes='mx-2' text='View Product' color='secondary'   />
      </MDBCardFooter>
           </MDBRipple>
           

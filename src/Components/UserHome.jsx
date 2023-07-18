@@ -7,6 +7,8 @@ import Card from './Card';
 import { GrLocation } from 'react-icons/gr';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
+import ViewProduct from './ViewProduct';
+import AdminLog from './Admin/AdminLog';
 
 
 const UserHome = () => {
@@ -59,6 +61,7 @@ const UserHome = () => {
         <div>
           <Footer/>
         </div>
+        <AdminLog/>
       </div>
     </>
   );

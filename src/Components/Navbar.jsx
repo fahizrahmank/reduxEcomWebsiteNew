@@ -9,19 +9,21 @@ import {
   MDBDropdownItem 
 } from 'mdb-react-ui-kit';
 import Location from './Location';
-import Login from '../Pages/Login';
+import Login from '../Pages/UserLogin';
 import CartIcon from './CartIcon';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 
 
 export default function Navbar() {
   const nav = useNavigate()
+  const cartProduct = useSelector(state => state.cart)
   return (
     <>
 
-      <MDBNavbar light bgColor='light'>
+      <MDBNavbar light bgColor='light' >
         <MDBContainer fluid>
           <MDBNavbarBrand href='#' style={{color:'#53B175'}}>MY MART</MDBNavbarBrand>
           
@@ -38,15 +40,17 @@ export default function Navbar() {
         </div>
     <div style={{display:'flex',justifyContent:'space-evenly'}}>
     <CartIcon/>
-  <span style={{paddingBottom:'10px'}}>0</span>
     </div>       
        </div>
+       <span style={{color:'red'}}>{cartProduct.length}</span>
+
         <MDBDropdownMenu >
-          <MDBDropdownItem link>Order History</MDBDropdownItem>
-          <MDBDropdownItem link onClick={() => nav('/orderStatus')}> Order Status </MDBDropdownItem>
-          <MDBDropdownItem link>Log Out</MDBDropdownItem>
+          <MDBDropdownItem link onClick={() => nav('/orderStatus')}>  Order Status</MDBDropdownItem>
+          <MDBDropdownItem link onClick={() => nav('/admin')}> Admin</MDBDropdownItem>
+          <MDBDropdownItem link onClick={() => nav('/admin/')}>Log Out</MDBDropdownItem>
         </MDBDropdownMenu>
       </MDBDropdown>
+
        </div>
         </MDBContainer>
 

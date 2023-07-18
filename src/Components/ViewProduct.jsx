@@ -1,57 +1,84 @@
-
-import React, { useState } from 'react';
-import {
-  MDBBtn,
-  MDBModal,
-  MDBModalDialog,
-  MDBModalContent,
-  MDBModalHeader,
-  MDBModalTitle,
-  MDBModalBody,
-  MDBModalFooter,
-} from 'mdb-react-ui-kit';
-import Button from './Button';
-
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from './Button'
+import Typography from '@mui/material/Typography';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { addtocart } from '../assets/Redux/Slices/CartSlice';
 
 export default function ViewProduct() {
-  
-  const [fullscreenXlModal, setFullscreenXlModal] = useState(false);
+    const dispatch = useDispatch()
+    const nav = useNavigate()
+   
 
-  const toggleShow = () => setFullscreenXlModal(!fullscreenXlModal);
+  const {id} = useParams()
 
+        const inCart = useSelector((state) => state.cart)
+        // console.log("to cartssss",inCart);
+
+
+        const datas = useSelector((state)=>state.products)
+        const data = datas.filter((item)=> item.id === parseInt(id) )
+
+        const additem = (product) =>{
+          
+            dispatch(addtocart(product))    
+    
+        }
   return (
-    <>
-      {/* <MDBBtn onClick={toggleShow}>Full screen below xl</MDBBtn> */}
-      <span onClick={toggleShow}><Button  classes='mx-2' text='View Product' color='secondary'  /> </span>   
+    <>    
+    {data.map((product) => (
 
-      <MDBModal tabIndex='-1' show={fullscreenXlModal} setShow={setFullscreenXlModal}>
-        <MDBModalDialog size="fullscreen"	>
-          <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Full screen below xl</MDBModalTitle>
-              <MDBBtn
-                type='button'
-                className='btn-close'
-                color='none'
-                onClick={toggleShow}
-              ></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>
-            <img
-      src='https://mdbootstrap.com/img/new/standard/city/041.webp'
-      className='img-thumbnail'
-      alt='...'
-    />
-           
-            </MDBModalBody>
-            <MDBModalFooter>
-              <MDBBtn type='button' color='secondary' onClick={toggleShow}>
-                Close
-              </MDBBtn>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
-      </MDBModal>
+<div style={{backgroundColor:'lightgrey',height:'100vh'}}>
+  <br />
+
+<div style={{display:'flex',justifyContent:'center',height:'385px',alignItems:'center',paddingTop:'20rem',width:'90%'}}> 
+<Card style={{height:'45rem',width:'35rem',display:'flex', alignItems:'center'}} >
+ <CardMedia
+   component="img"
+   alt="green iguana"
+   image={product.image}
+  //  style={{height:'35rem'}}
+   style={{ width: '18rem' ,display:'flex',alignItems:'center',flexDirection:'column' }}
+
+ />
+<div style={{display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',textAlign:'center',}}>
+<CardContent>
+<Typography gutterBottom variant="h4" component="div">
+     {product.title}
+   </Typography>
+   <Typography gutterBottom variant="h4" component="div">
+   ₹ {product.price}
+   </Typography>
+   
+   <Typography gutterBottom variant="h6" component="div">
+     {product.category}
+   </Typography>
+   <Typography variant="body2" color="text.secondary">
+     {product.description}
+   </Typography>
+  
+ </CardContent>
+ <CardActions>
+  <div onClick={() =>additem(product)}>
+  <Button classes='mx-2' text='Add to cart' color='secondary'  />
+  </div>
+      <div onClick={() => nav('/')}>
+      <Button classes='mx-2' text='Back' color='secondary'  />
+      </div>
+    
+<br />
+<br />
+ </CardActions>
+</div>
+</Card>
+</div>
+</div>
+    ))}
+    
     </>
   );
 }
