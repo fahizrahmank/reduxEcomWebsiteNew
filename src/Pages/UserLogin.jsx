@@ -13,7 +13,8 @@ import {
 import { MDBIcon } from "mdb-react-ui-kit";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import axios from "axios"; 
+import axios from "axios";
+import Button from "../Components/Button";
 
 export default function UserLogin() {
   const [topRightModal, setTopRightModal] = useState(false);
@@ -42,7 +43,6 @@ export default function UserLogin() {
       })
       .then((response) => {
         console.log(response.data);
-    
       })
       .catch((error) => {
         console.error(error);
@@ -113,12 +113,10 @@ export default function UserLogin() {
                     Not a member ?{" "}
                     <span style={{ color: "blue" }}>Register</span>
                   </p>
-                  <MDBBtn color="info" onClick={handleSubmit}>
-                    Sign in
-                  </MDBBtn>
-                  <MDBBtn outline color="info" onClick={toggleShow}>
-                    Close
-                  </MDBBtn>
+
+                  <Button text="Sign in" classes="me-1" color="info" />
+
+                  <Button text="Close" classes="me-1" color="info" />
                 </MDBModalFooter>
               </MDBModalContent>
             </MDBModalDialog>
