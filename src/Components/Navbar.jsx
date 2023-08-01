@@ -25,7 +25,7 @@ export default function Navbar() {
 
       <MDBNavbar light bgColor='light' >
         <MDBContainer fluid>
-          <MDBNavbarBrand href='#' style={{color:'#53B175'}}>MY MART</MDBNavbarBrand>
+          <MDBNavbarBrand style={{color:'#53B175'}} onClick={()=>nav('/')}>MY MART</MDBNavbarBrand>
           
        <div style={{display:'flex',justifyContent:'space-evenly'}}>
        <div style={{paddingLeft:'73rem',marginTop:'10px'}}>

@@ -17,6 +17,7 @@ import Login from "./Pages/UserLogin";
 import UserSignup from "./Pages/UserSignup";
 import DealerRegister from "./Components/Dealer/DealerRegister";
 import AdminRegister from "./Components/Admin/AdminRegister";
+import Product from "./Components/Product";
 
 const App = (props) => {
   return (
@@ -29,6 +30,7 @@ const App = (props) => {
           <Route path="/adminregister" element={<AdminRegister />} />
           <Route path="/dealerregister" element={<DealerRegister />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/product" element={<Product/>} />
           <Route path="/orderstatus" element={<OrderStatus />} />
           <Route path="/viewproduct/:id" element={<ViewProduct />} />
           <Route path="/dealer" element={<Dealer />} />
