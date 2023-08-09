@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addtocart } from '../assets/Redux/Slices/CartSlice';
+import "../CSS/view.css"
 
 export default function ViewProduct() {
     const dispatch = useDispatch()
@@ -57,7 +58,7 @@ export default function ViewProduct() {
    <Typography gutterBottom variant="h6" component="div">
      {product.category}
    </Typography>
-   <Typography variant="body2" color="text.secondary">
+   <Typography variant="body2" color="text.secondary" className='des'>
      {product.description}
    </Typography>
   

@@ -16,6 +16,8 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import Button from "../Components/Button";
 
+
+
 export default function UserLogin() {
   const [topRightModal, setTopRightModal] = useState(false);
 
@@ -77,11 +79,10 @@ export default function UserLogin() {
                     className="btn-close btn-close-white"
                     onClick={toggleShow}
                   ></MDBBtn>
-                </MDBModalHeader>
-                <MDBModalBody>
+               </MDBModalHeader>
+              <MDBModalBody>
                   <div className="row">
                     <div className="col-3 text-center">
-                      {/* <i className='fas fa-shopping-cart fa-4x text-info'></i> */}
                       <div>
                         <MDBIcon
                           className="ms-1"
@@ -107,7 +108,8 @@ export default function UserLogin() {
                       />
                     </div>
                   </div>
-                </MDBModalBody>
+                </MDBModalBody> 
+                
                 <MDBModalFooter>
                   <p onClick={() => nav("/usersignup")}>
                     Not a member ?{" "}

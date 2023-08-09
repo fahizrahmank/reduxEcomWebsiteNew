@@ -15,9 +15,10 @@ const UserHome = () => {
   return (
     <>
       <div>
-        {/* <div style={{ position: "sticky", top: "0", zIndex: "999" }}>
-        </div> */}
+     
         <Navbar />
+    
+       
 
 
         <div style={{ marginLeft: "20px" }}></div>
