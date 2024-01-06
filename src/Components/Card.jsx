@@ -37,11 +37,11 @@ function Card() {
             md="12"
             lg="4"
             className="mb-4"
-            style={{
-              marginBottom: "10px",
-              display: "flex",
-              justifyContent: "space-evenly",
-            }}
+              style={{
+                marginBottom: "10px",
+                display: "flex",
+                justifyContent: "space-evenly",
+              }}
           >
             <br />
             <br />

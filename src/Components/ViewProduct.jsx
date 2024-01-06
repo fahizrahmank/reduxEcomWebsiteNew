@@ -29,7 +29,7 @@ export default function ViewProduct() {
             dispatch(addtocart(product))    
     
         }
-  return (
+  return (  
     <>    
     {data.map((product) => (
 

@@ -30,7 +30,7 @@ const App = (props) => {
           <Route path="/adminregister" element={<AdminRegister />} />
           <Route path="/dealerregister" element={<DealerRegister />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/product" element={<Product/>} />
+          <Route path="/product" element={<Product />} />
           <Route path="/orderstatus" element={<OrderStatus />} />
           <Route path="/viewproduct/:id" element={<ViewProduct />} />
           <Route path="/dealer" element={<Dealer />} />
@@ -40,7 +40,6 @@ const App = (props) => {
           <Route element={<Admin />} />
           <Route path="/admin/adminusers" element={<AdminUsers />} />
           <Route path="/admin/dealers" element={<AdminDealers />} />
-
         </Routes>
       </Provider>
     </BrowserRouter>
