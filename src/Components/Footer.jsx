@@ -41,8 +41,7 @@ export default function Footer() {
                 MART
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
+                Here you can use rows and columns to organize your footer content. 
               </p>
             </MDBCol>
 
